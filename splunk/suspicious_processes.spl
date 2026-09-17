@@ -1,0 +1,7 @@
+index=windows (sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" OR source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational") EventCode=1
+| eval image_l=lower(Image), cmd_l=lower(CommandLine)
+| where like(image_l,"%\\powershell.exe") OR like(image_l,"%\\cmd.exe") OR like(image_l,"%\\wscript.exe") OR like(image_l,"%\\cscript.exe")
+| eval suspicious_reason=case(like(cmd_l,"%-enc%"),"Encoded PowerShell argument",like(cmd_l,"%downloadstring%"),"DownloadString observed",like(cmd_l,"%frombase64string%"),"Base64 decode observed",true(),"Command interpreter execution")
+| eval severity=if(suspicious_reason="Command interpreter execution","medium","high")
+| table _time Computer User Image ParentImage CommandLine ProcessId suspicious_reason severity
+| sort - _time
