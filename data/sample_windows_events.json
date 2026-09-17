@@ -1,0 +1,9 @@
+[
+  {"timestamp":"2026-08-15T14:01:00Z","host":"WIN-LAB01","event_id":4625,"user":"labuser","source_ip":"192.0.2.25","message":"An account failed to log on"},
+  {"timestamp":"2026-08-15T14:01:20Z","host":"WIN-LAB01","event_id":4625,"user":"labuser","source_ip":"192.0.2.25","message":"An account failed to log on"},
+  {"timestamp":"2026-08-15T14:01:40Z","host":"WIN-LAB01","event_id":4625,"user":"labuser","source_ip":"192.0.2.25","message":"An account failed to log on"},
+  {"timestamp":"2026-08-15T14:02:00Z","host":"WIN-LAB01","event_id":4625,"user":"labuser","source_ip":"192.0.2.25","message":"An account failed to log on"},
+  {"timestamp":"2026-08-15T14:02:20Z","host":"WIN-LAB01","event_id":4625,"user":"labuser","source_ip":"192.0.2.25","message":"An account failed to log on"},
+  {"timestamp":"2026-08-15T15:10:00Z","host":"WIN-LAB01","event_id":4732,"subject_user":"LAB\\administrator","member_name":"LAB\\testuser","group_name":"Administrators","message":"A member was added to a security-enabled local group"},
+  {"timestamp":"2026-08-15T16:22:00Z","host":"WIN-LAB01","event_id":1,"provider":"Sysmon","user":"LAB\\labuser","image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","parent_image":"C:\\Windows\\explorer.exe","command_line":"powershell.exe -NoProfile Get-Process","message":"Process Create"}
+]
