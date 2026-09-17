@@ -1,0 +1,7 @@
+index=windows (sourcetype="WinEventLog:Security" OR source="WinEventLog:Security") EventCode=4625
+| bin _time span=5m
+| stats count as failed_attempts values(ComputerName) as hosts by _time, Account_Name, Source_Network_Address
+| where failed_attempts >= 5
+| eval severity=case(failed_attempts>=15,"high",failed_attempts>=10,"medium",true(),"low")
+| sort - failed_attempts
+| table _time Account_Name Source_Network_Address hosts failed_attempts severity
