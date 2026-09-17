@@ -1,0 +1,5 @@
+index=windows sourcetype="WinEventLog:Security" (EventCode=4728 OR EventCode=4732)
+| eval change_type=case(EventCode=4728,"Added to global security group",EventCode=4732,"Added to local security group")
+| eval severity="high"
+| table _time ComputerName SubjectUserName MemberName GroupName EventCode change_type severity
+| sort - _time
